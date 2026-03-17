@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import useScreenSize from "@/hooks/use-screen-size";
 import type { Song } from "@/types";
 import { useIsClient } from "@uidotdev/usehooks";
-import { Mail, Twitter, Linkedin, Github } from "lucide-react";
+import { Mail, Instagram, Linkedin, Github } from "lucide-react";
 import { AnimatePresence, motion, Variants } from "motion/react";
 import { useTheme } from "next-themes";
 import dynamic from "next/dynamic";
@@ -117,9 +117,9 @@ const slideInBottom: Variants = {
 };
 
 const socialLinks = [
-  { icon: Github, label: "Github", link: `${siteConfig.github}/portfolio` },
+  { icon: Github, label: "Github", link: `${siteConfig.github}` },
   { icon: Mail, label: "Email", link: `mailto:${siteConfig.email}` },
-  { icon: Twitter, label: "Twitter", link: siteConfig.twitter },
+  { icon: Instagram, label: "Instagram", link: siteConfig.instagram },
 ];
 
 const MainScreen: React.FC<{
@@ -173,7 +173,7 @@ const MainScreen: React.FC<{
           <>
             Hi! , I am{" "}
             <Typewriter
-              text={["a developer", "Siddharth", "Stark"]}
+              text={["a developer", "Lavanya"]}
               speed={70}
               waitTime={1500}
               deleteSpeed={40}
