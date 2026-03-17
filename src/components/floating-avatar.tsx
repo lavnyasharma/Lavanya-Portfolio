@@ -112,26 +112,7 @@ const FloatingAvatar = () => {
                   Psst... Would you like to chat personally?
                 </p>
 
-                <div className="flex gap-2">
-                  <a
-                    href={siteConfig.telegram}
-                    target="_blank"
-                    rel="noopener,noreferrer"
-                    className="group flex h-8 flex-1 items-center justify-center gap-2 bg-[#0088cc] font-bold text-white"
-                  >
-                    <Send className="h-4 w-4" />
-                    <span className="text-xs uppercase">Chat</span>
-                  </a>
-
-                  <motion.button
-                    onClick={handleDismiss}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex size-8 items-center justify-center bg-red-500 p-2 font-bold text-white transition-all hover:bg-red-600"
-                    aria-label="Close"
-                  >
-                    <X className="size-8" />
-                  </motion.button>
-                </div>
+       
               </SpeechBubble>
             </motion.div>
           </div>
