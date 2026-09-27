@@ -89,8 +89,10 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-foreground/60 max-w-2xl text-sm font-light md:text-base"
             >
-              Fullstack developer with a passion for building web applications.
-              I specialize in React, Next.js, Node.js, and TypeScript.
+              Software Engineer with 3 years of experience owning end-to-end
+              delivery of responsive web apps in React, Next.js, and Angular,
+              integrating AI/LLM services and RAG pipelines into production
+              interfaces for clients like NPCI, Bosch, SEBI, and Tata.
             </motion.p>
 
             <motion.div
@@ -133,9 +135,9 @@ const Hero = () => {
               label: "Portfolio views",
               value: umamiStats?.data?.pageviews ?? 0,
             },
-            { label: "Years of Experience", value: 2 },
-            { label: "Projects Shipped", value: 8 },
-            { label: "Happy Clients", value: 5 },
+            { label: "Years of Experience", value: 3 },
+            { label: "Projects Shipped", value: 6 },
+            { label: "Enterprise Clients", value: 4 },
           ].map((stat, i) => (
             <div
               key={i}

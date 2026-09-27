@@ -12,39 +12,59 @@ import { motion } from "motion/react";
 
 const Projects = () => {
   const projects = [
-
-    // {
-    //   title: "Telegram Bot",
-    //   description: "A telegram group management bot built with Pyrogram.",
-    //   tags: ["Bot", "Management", "Telegram"],
-    //   github: "https://github.com/Notstark/TelegramBot",
-    //   image: "/projects/telegrambot-screenshot.png",
-    //   live: "https://t.me/HyugaGuardianBot",
-    //   date: "Oct, 2024",
-    //   status: "completed",
-    // },
-{
-  title: "Knodal AI",
-  description:
-    "An AI-powered analytics and conversational BI platform that enables users to explore data using natural language, generate insights, and visualize metrics through an intuitive, modern frontend experience.",
-  tags: ["AI", "Analytics", "Conversational BI", "Frontend"],
-  image: "/projects/knodal.png",
-  live: "https://app.knodal.ai",
-  website: "https://knodal.ai",
-  date: "2024",
-  status: "completed",
-},    {
+    {
+      title: "PortGPT",
+      description:
+        "An enterprise AI assistant for VOC Port operations — owned end-to-end as Lead Frontend Engineer, from architecture to deployment across web, iOS, and Android. Features real-time SSE chat streaming, a knowledge base with website crawling, a 30+ KPI analytics dashboard, and an AI-powered report & template engine.",
+      tags: ["AI", "Next.js", "Enterprise", "Frontend"],
+      image: "/projects/portgpt-card.svg",
+      live: "https://portgpt.sahanasystem.com",
+      website: "https://portgpt.sahanasystem.com",
+      date: "2024 - Present",
+      status: "ongoing",
+    },
+    {
+      title: "DigiSaathi",
+      description:
+        "NPCI's conversational helpline platform serving 200K+ active users. Independently drove the Angular v8-to-v19 migration, cutting bundle size by ~30% and eliminating 3+ years of technical debt, plus AI-powered analytics dashboards tracking voice/text interactions.",
+      tags: ["Angular", "Government", "Analytics"],
+      image: "/projects/digisaathi-card.svg",
+      live: "https://digisaathi.info",
+      website: "https://digisaathi.info",
+      date: "2023 - 2026",
+      status: "completed",
+    },
+    {
+      title: "Knodal AI",
+      description:
+        "An AI-powered analytics and conversational BI platform that enables users to explore data using natural language, generate insights, and visualize metrics through an intuitive, modern frontend experience.",
+      tags: ["AI", "Analytics", "Conversational BI", "Frontend"],
+      image: "/projects/knodal.png",
+      live: "https://app.knodal.ai",
+      website: "https://knodal.ai",
+      date: "2024",
+      status: "completed",
+    },
+    {
+      title: "Remote Mac Control",
+      description:
+        "A personal tool for remotely accessing and controlling a Mac — screen viewing, input control, and automation over a secure connection, built to manage a machine from anywhere without being physically present.",
+      tags: ["macOS", "Automation", "Personal"],
+      image: "/projects/remote-mac-card.svg",
+      date: "2025",
+      status: "completed",
+    },
+    {
       title: "Developer Portfolio",
       description:
         "A personal portfolio website showcasing projects, skills, and contact information.",
       tags: ["Portfolio", "Fullstack", "Personal"],
-      github: "https://github.com/NotStark/portfolio",
+      github: "https://github.com/lavnyasharma",
       image: "/projects/portfolio-screenshot.png",
       live: env.NEXT_PUBLIC_APP_URL,
       date: "Sep, 2025",
       status: "completed",
-    }
-
+    },
   ];
 
   const tagColors = {
@@ -56,6 +76,16 @@ const Projects = () => {
     Bot: "bg-teal-500/10 text-teal-600 border-teal-500/30",
     Anime: "bg-pink-500/10 text-pink-600 border-pink-500/30",
     Streaming: "bg-indigo-500/10 text-indigo-600 border-indigo-500/30",
+    AI: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
+    Analytics: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
+    "Conversational BI": "bg-indigo-500/10 text-indigo-600 border-indigo-500/30",
+    Frontend: "bg-blue-500/10 text-blue-600 border-blue-500/30",
+    "Next.js": "bg-neutral-500/10 text-neutral-600 border-neutral-500/30",
+    Enterprise: "bg-teal-500/10 text-teal-600 border-teal-500/30",
+    Angular: "bg-red-500/10 text-red-600 border-red-500/30",
+    Government: "bg-orange-500/10 text-orange-600 border-orange-500/30",
+    macOS: "bg-slate-500/10 text-slate-600 border-slate-500/30",
+    Automation: "bg-violet-500/10 text-violet-600 border-violet-500/30",
   };
 
   return (
@@ -157,9 +187,14 @@ const Projects = () => {
                 </div>
 
                 {/*  Buttons */}
+                {!project.website && !project.live && !project.github ? (
+                  <div className="text-muted-foreground inline-flex w-fit items-center gap-2 border-2 border-dashed px-4 py-2 font-mono text-xs uppercase">
+                    Private Project
+                  </div>
+                ) : (
                 <div className="flex flex-wrap gap-3">
                   {/* Primary Button: Website or GitHub */}
-                  
+
                   {project.website ? (
                     <Button
                       asChild
@@ -216,6 +251,7 @@ const Projects = () => {
                     </a>
                   </Button>
                 </div>
+                )}
 
                 {/*  slanted lines */}
                 <div className="absolute -right-4 -bottom-32 w-full translate-x-1/4 translate-y-1/4 rotate-[-30deg]">

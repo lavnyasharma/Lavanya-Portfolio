@@ -10,38 +10,26 @@ import { motion } from "motion/react";
 const Experience = () => {
     const experiences = [
         {
-            company: "CoRover",
+            company: "CoRover Private Limited",
             role: "Software Engineer",
             duration: "Nov 2023 - Present",
             location: "Bengaluru, Karnataka, India · On-site",
-            type: "Full-time",
-            logo: "https://web.corover.ai/bGPT+CoRover_raw%20(2).png", 
+            type: "Full-time · Agile/Scrum",
+            logo: "https://web.corover.ai/bGPT+CoRover_raw%20(2).png",
             description: [
-                "Led development of Bosch AI conversational finance dashboard, integrating APIs, Chart.js, voice-based queries, and execution trace for transparent financial insights.",
-                "Conducted one-on-one client calls with Bosch to gather requirements, clarify use cases, and ensure alignment between business needs and technical implementation.",
-                "Built QCI (NABL & NABH) conversational platforms, adding conversation history, mid-journey feedback system, and hybrid flow + AI-driven interactions.",
-                "Developed AI analytics platform frontend, enabling database integration, natural language queries, and 600+ visualizations with Plotly.js.",
-                "Migrated enterprise chatbots (SEBI, NPCI DigiSaathi) from Angular 8 → 19, improving security, maintainability, and performance.",
-                "Delivered rapid-turnaround chatbots (Nano Kernel in <12 hrs, ChangeInkk in <24 hrs), showcasing agility, adaptability, and client trust.",
-                "Created live chatbot with Freshchat socket integration (messages, images, PDFs) and University Living chatbot for multi-API search, inquiry, and accommodation booking.",
-                "Contributed to security audits (CSP, VAPT fixes), cloud migrations (GCP → Cloudflare), and mentored interns for faster onboarding and knowledge transfer."
+                "Owned end-to-end, as Lead Frontend Engineer, the full-stack frontend for PortGPT — an enterprise AI assistant for VOC Port operations — from architecture to deployment across web, iOS (TestFlight), and Android from a single Next.js 16 / React 19 codebase via Capacitor.",
+                "Architected a real-time AI chat interface with SSE streaming, conversation history, PDF/DOCX export, and a typewriter response UX using flushSync for immediate DOM updates.",
+                "Designed a knowledge base management system supporting bulk document upload, model training, website crawling with live SSE progress, and a searchable document inventory.",
+                "Led an operations analytics dashboard with 30+ KPIs across vessel, cargo, container, and environmental data using Recharts, with live port pulse and date-range filtering.",
+                "Built an AI-powered report & template engine producing fertiliser, MIS, traffic, and forecast reports as PDFs, plus department-wise tender/circular drafts with DOCX export.",
+                "Architected a 1,000+ line API client layer integrating 30+ REST/SSE endpoints, JWT auth with auto-refresh, Capacitor SecureStorage, Sentry monitoring, and Vercel Analytics.",
+                "Led the Angular v8-to-v19 migration on DigiSaathi, NPCI's conversational platform serving 200K+ active users — cutting bundle size by ~30% and eliminating 3+ years of technical debt.",
+                "Built ReactJS UI components and a dynamic Chart.js rendering engine (bar, line, radar) for Bosch's financial conversational analytics dashboard, integrating RESTful APIs.",
+                "Owned end-to-end a React Native cross-platform AI companion app (KanhaJi AI) for Android & iOS — onboarding, personalisation, chatbot interfaces, and a conversation audit dashboard.",
+                "Delivered the Live Chat Handoff & Tata IVR Management Portal, and authored RFP responses and pitch decks for NPCI, Bosch, SEBI, Tata, NEGD, LIC, SRA, and NITI Aayog.",
             ],
-            skills: ["TypeScript", "AngularJS", "React", "Next.js", "AI Integration", "Chart.js", "Plotly.js", "API Development"]
+            skills: ["Next.js", "React", "TypeScript", "Angular (v8-19)", "React Native", "Tailwind CSS", "SSE Streaming", "RAG / LLM Integration", "Capacitor", "Recharts"]
         },
-        {
-            company: "Pointerz Inc.",
-            role: "Frontend Engineering Associate",
-            duration: "Mar 2023 - Aug 2023",
-            location: "San Francisco Bay Area · Remote",
-            type: "Internship",
-            logo: "https://webdn.pointerz.me/wp-content/uploads/2023/04/pointerz@2x-website-1-e1681494801103.png",
-            description: [
-                "Created and updated the company website using WordPress.",
-                "Built a ReactJS employee management dashboard to track employees, locations, and activity status.",
-                "Managed APIs, handled data processing, and deployed on AWS."
-            ],
-            skills: ["Front-End Development", "HTML", "ReactJS", "AWS", "WordPress", "API Management"]
-        }
     ];
 
     return (

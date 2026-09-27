@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        alt: "Stark's Portfolio",
+        alt: "Lavanya Sharma's Portfolio",
       },
     ],
   },

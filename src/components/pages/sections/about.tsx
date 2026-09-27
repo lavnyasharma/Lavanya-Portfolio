@@ -31,11 +31,11 @@ const About = () => {
           <div className="text-foreground/70 bg-muted/20 relative z-10 mx-auto mt-6 max-w-3xl rounded-lg border-2 border-dotted text-sm leading-relaxed backdrop-blur-3xl md:text-base">
             <div className="p-6">
               <p className="mb-6">
-                I am a Software Engineer and Frontend Developer with over 2 years of experience, currently building intelligent interfaces at CoRover, Bengaluru. My expertise lies in architecting enterprise-grade frontend systems, AI-powered conversational platforms, and real-time analytics dashboards using React, Angular (2–19), and TypeScript.
+                I am a Software Engineer with 3 years of experience owning end-to-end delivery of responsive web applications, currently building AI-powered interfaces at CoRover, Bengaluru. My expertise lies in architecting enterprise-grade frontend systems, conversational AI platforms, and real-time analytics dashboards using React, Next.js, Angular (v8–19), and TypeScript.
               </p>
 
               <p className="">
-                I thrive in building high-impact platforms—from finance dashboards to complex chatbots—with a relentless focus on performance, scalability, and clean UI/UX. Whether it&apos;s rapid prototyping or deep API integration, I bring a modern, AI-assisted approach to solving problems and creating seamless digital experiences.
+                I&apos;ve independently driven design, development, and delivery of enterprise-grade UI and RFPs for clients including NPCI, Bosch, SEBI, and Tata—integrating LLM APIs, RAG pipelines, and SSE streaming into production products. I&apos;m an AWS Certified Cloud Practitioner and National Winner at Smart India Hackathon 2022.
               </p>
             </div>
 
@@ -110,7 +110,7 @@ const About = () => {
                         ? "Not Available"
                         : "Available"}
                     </Badge>
-                    <Badge variant="outline">2+ Years</Badge>
+                    <Badge variant="outline">3+ Years</Badge>
                     <Badge variant="outline">Full-Stack</Badge>
                   </div>
                 </div>
