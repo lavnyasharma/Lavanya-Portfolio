@@ -5,19 +5,12 @@ import { Button } from "@/components/ui/button";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Typewriter } from "@/components/ui/typewriter";
 import { clients, projects } from "@/data/work";
-import { clientApi } from "@/lib/client-api";
 import { cn } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
 import { ArrowDownSquareIcon, ArrowUpRight, Download } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
 const Hero = () => {
-  const { data: umamiStats } = useQuery({
-    queryKey: ["pageViews"],
-    queryFn: clientApi.views.getStats,
-  });
-
   return (
     <div className="relative flex flex-col justify-center overflow-hidden border-b pt-12">
       <div className="px-4 pb-6 md:px-8 md:pb-14 lg:px-20">
@@ -138,12 +131,8 @@ const Hero = () => {
 
       {/*  Stats Grid */}
       <div className="relative">
-        <div className="grid grid-cols-2 border md:max-w-3/4 md:border-0 md:border-t md:border-r lg:grid-cols-4">
+        <div className="grid grid-cols-3 border md:max-w-3/4 md:border-0 md:border-t md:border-r">
           {[
-            {
-              label: "Portfolio views",
-              value: umamiStats?.data?.pageviews ?? 0,
-            },
             { label: "Years of Experience", value: 3 },
             { label: "Projects", value: projects.length },
             { label: "Clients", value: clients.length },
@@ -151,15 +140,14 @@ const Hero = () => {
             <div
               key={i}
               className={cn(
-                "group hover:bg-foreground/5 relative p-8 text-center transition-colors",
-                i !== 3 && "border-r",
-                i < 2 && "border-b lg:border-b-0",
+                "group hover:bg-foreground/5 relative px-2 py-8 text-center transition-colors sm:px-8",
+                i !== 2 && "border-r",
               )}
             >
               <div className="text-foreground mb-2 text-3xl font-bold">
                 <NumberTicker value={stat.value} />+
               </div>
-              <div className="text-foreground/50 font-mono text-xs tracking-wider uppercase">
+              <div className="text-foreground/50 font-mono text-[10px] tracking-wider uppercase sm:text-xs">
                 {stat.label}
               </div>
             </div>
