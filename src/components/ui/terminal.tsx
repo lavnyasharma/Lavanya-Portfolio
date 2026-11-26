@@ -155,8 +155,8 @@ export const Terminal = ({
           </div>
         </div>
       )}
-      <pre className="p-4">
-        <code className="grid gap-y-1 overflow-auto">{children}</code>
+      <pre className="p-4 break-words whitespace-pre-wrap">
+        <code className="grid grid-cols-[minmax(0,1fr)] gap-y-1 overflow-auto">{children}</code>
       </pre>
     </div>
   )

@@ -3,34 +3,18 @@
 import SectionHeading from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import HeadingLine from "@/components/ui/heading-line";
-import { cn } from "@/lib/utils";
+import { experiences as workHistory } from "@/data/work";
 import { Briefcase, Building2, Calendar, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 
 const Experience = () => {
-    const experiences = [
-        {
-            company: "CoRover Private Limited",
-            role: "Software Engineer",
-            duration: "Nov 2023 - Present",
-            location: "Bengaluru, Karnataka, India · On-site",
-            type: "Full-time · Agile/Scrum",
-            logo: "https://web.corover.ai/bGPT+CoRover_raw%20(2).png",
-            description: [
-                "Owned end-to-end, as Lead Frontend Engineer, the full-stack frontend for PortGPT — an enterprise AI assistant for VOC Port operations — from architecture to deployment across web, iOS (TestFlight), and Android from a single Next.js 16 / React 19 codebase via Capacitor.",
-                "Architected a real-time AI chat interface with SSE streaming, conversation history, PDF/DOCX export, and a typewriter response UX using flushSync for immediate DOM updates.",
-                "Designed a knowledge base management system supporting bulk document upload, model training, website crawling with live SSE progress, and a searchable document inventory.",
-                "Led an operations analytics dashboard with 30+ KPIs across vessel, cargo, container, and environmental data using Recharts, with live port pulse and date-range filtering.",
-                "Built an AI-powered report & template engine producing fertiliser, MIS, traffic, and forecast reports as PDFs, plus department-wise tender/circular drafts with DOCX export.",
-                "Architected a 1,000+ line API client layer integrating 30+ REST/SSE endpoints, JWT auth with auto-refresh, Capacitor SecureStorage, Sentry monitoring, and Vercel Analytics.",
-                "Led the Angular v8-to-v19 migration on DigiSaathi, NPCI's conversational platform serving 200K+ active users — cutting bundle size by ~30% and eliminating 3+ years of technical debt.",
-                "Built ReactJS UI components and a dynamic Chart.js rendering engine (bar, line, radar) for Bosch's financial conversational analytics dashboard, integrating RESTful APIs.",
-                "Owned end-to-end a React Native cross-platform AI companion app (KanhaJi AI) for Android & iOS — onboarding, personalisation, chatbot interfaces, and a conversation audit dashboard.",
-                "Delivered the Live Chat Handoff & Tata IVR Management Portal, and authored RFP responses and pitch decks for NPCI, Bosch, SEBI, Tata, NEGD, LIC, SRA, and NITI Aayog.",
-            ],
-            skills: ["Next.js", "React", "TypeScript", "Angular (v8-19)", "React Native", "Tailwind CSS", "SSE Streaming", "RAG / LLM Integration", "Capacitor", "Recharts"]
-        },
-    ];
+    const experiences = workHistory.map((item) => ({
+        ...item,
+        company: "CoRover Private Limited",
+        location: "Bengaluru, Karnataka, India · On-site",
+        type: item.role.includes("Intern") ? "Internship" : "Full-time · Agile/Scrum",
+        logo: "https://web.corover.ai/bGPT+CoRover_raw%20(2).png",
+    }));
 
     return (
         <SectionHeading id="experience" text="Work Experience">
@@ -44,7 +28,7 @@ const Experience = () => {
                 <div className="space-y-12">
                     {experiences.map((exp, index) => (
                         <motion.div
-                            key={exp.company}
+                            key={exp.role}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}

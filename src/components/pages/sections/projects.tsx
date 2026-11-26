@@ -5,67 +5,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import HeadingLine from "@/components/ui/heading-line";
 import env from "@/config/env";
-import { siteConfig } from "@/config/site";
+import { projects as allProjects } from "@/data/work";
 import { cn } from "@/lib/utils";
 import { Github, ArrowUpRight, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "PortGPT",
-      description:
-        "An enterprise AI assistant for VOC Port operations — owned end-to-end as Lead Frontend Engineer, from architecture to deployment across web, iOS, and Android. Features real-time SSE chat streaming, a knowledge base with website crawling, a 30+ KPI analytics dashboard, and an AI-powered report & template engine.",
-      tags: ["AI", "Next.js", "Enterprise", "Frontend"],
-      image: "/projects/portgpt-card.svg",
-      live: "https://portgpt.sahanasystem.com",
-      website: "https://portgpt.sahanasystem.com",
-      date: "2024 - Present",
-      status: "ongoing",
-    },
-    {
-      title: "DigiSaathi",
-      description:
-        "NPCI's conversational helpline platform serving 200K+ active users. Independently drove the Angular v8-to-v19 migration, cutting bundle size by ~30% and eliminating 3+ years of technical debt, plus AI-powered analytics dashboards tracking voice/text interactions.",
-      tags: ["Angular", "Government", "Analytics"],
-      image: "/projects/digisaathi-card.svg",
-      live: "https://digisaathi.info",
-      website: "https://digisaathi.info",
-      date: "2023 - 2026",
-      status: "completed",
-    },
-    {
-      title: "Knodal AI",
-      description:
-        "An AI-powered analytics and conversational BI platform that enables users to explore data using natural language, generate insights, and visualize metrics through an intuitive, modern frontend experience.",
-      tags: ["AI", "Analytics", "Conversational BI", "Frontend"],
-      image: "/projects/knodal.png",
-      live: "https://app.knodal.ai",
-      website: "https://knodal.ai",
-      date: "2024",
-      status: "completed",
-    },
-    {
-      title: "Remote Mac Control",
-      description:
-        "A personal tool for remotely accessing and controlling a Mac — screen viewing, input control, and automation over a secure connection, built to manage a machine from anywhere without being physically present.",
-      tags: ["macOS", "Automation", "Personal"],
-      image: "/projects/remote-mac-card.svg",
-      date: "2025",
-      status: "completed",
-    },
-    {
-      title: "Developer Portfolio",
-      description:
-        "A personal portfolio website showcasing projects, skills, and contact information.",
-      tags: ["Portfolio", "Fullstack", "Personal"],
-      github: "https://github.com/lavnyasharma",
-      image: "/projects/portfolio-screenshot.png",
-      live: env.NEXT_PUBLIC_APP_URL,
-      date: "Sep, 2025",
-      status: "completed",
-    },
-  ];
+  const projects = allProjects
+    .filter((project) => project.featured)
+    .map((project) => ({
+      ...project,
+      live:
+        project.title === "Developer Portfolio"
+          ? env.NEXT_PUBLIC_APP_URL
+          : project.website,
+    }));
 
   const tagColors = {
     Portfolio: "bg-blue-500/10 text-blue-600 border-blue-500/30",
@@ -122,9 +77,18 @@ const Projects = () => {
                       <div className="relative aspect-video overflow-hidden">
                         <img
                           src={project.image}
-                          alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          alt={`${project.title} front page`}
+                          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                         />
+                        {project.live && (
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open ${project.title}`}
+                            className="absolute inset-0 z-10"
+                          />
+                        )}
 
                         {/* Overlay gradient on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -187,70 +151,67 @@ const Projects = () => {
                 </div>
 
                 {/*  Buttons */}
-                {!project.website && !project.live && !project.github ? (
+                {!project.live && !project.github && !project.android ? (
                   <div className="text-muted-foreground inline-flex w-fit items-center gap-2 border-2 border-dashed px-4 py-2 font-mono text-xs uppercase">
                     Private Project
                   </div>
                 ) : (
-                <div className="flex flex-wrap gap-3">
-                  {/* Primary Button: Website or GitHub */}
-
-                  {project.website ? (
-                    <Button
-                      asChild
-                      variant="default"
-                      size="lg"
-                      className="group/btn relative border-2 font-medium"
-                    >
-                 
-                      <a
-                        href={project.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  <div className="flex flex-wrap gap-3">
+                    {project.live && (
+                      <Button
+                        asChild
+                        variant="default"
+                        size="lg"
+                        className="group/btn border-2 font-medium"
                       >
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View Website
-                        <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                      </a>
-                    </Button>
-                  ) : (
-                    <Button
-                      asChild
-                      variant="default"
-                      size="lg"
-                      className="group/btn relative border-2 font-medium"
-                      disabled={!project.github}
-                    >
-                      <a
-                        href={project.github || undefined}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Live Demo
+                          <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.github && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="lg"
+                        className="group/btn border-2 font-medium"
                       >
-                        <Github className="mr-2 h-4 w-4" />
-                        View Code
-                        <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                      </a>
-                    </Button>
-                  )}
-
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="group/btn border-2 font-medium"
-                    disabled={!project.live}
-                  >
-                    <a
-                      href={project.live || undefined}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                      <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </a>
-                  </Button>
-                </div>
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="mr-2 h-4 w-4" />
+                          View Code
+                          <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.android && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="lg"
+                        className="group/btn border-2 font-medium"
+                      >
+                        <a
+                          href={project.android}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Android App
+                          <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                 )}
 
                 {/*  slanted lines */}
@@ -273,7 +234,7 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* View All Projects */}
+      {/* View All Work */}
       <div className="border-t">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -283,15 +244,11 @@ const Projects = () => {
           className="py-12 text-center"
         >
           <Button asChild variant="ghost" size="lg" className="group font-mono">
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/work">
               <span className="bg-foreground/40 mr-2 inline-block h-px w-8 transition-all group-hover:w-12" />
-              VIEW ALL PROJECTS ON GITHUB
+              VIEW ALL WORK
               <span className="bg-foreground/40 ml-2 inline-block h-px w-8 transition-all group-hover:w-12" />
-            </a>
+            </Link>
           </Button>
         </motion.div>
       </div>

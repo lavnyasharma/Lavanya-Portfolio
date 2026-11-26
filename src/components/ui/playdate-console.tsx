@@ -381,7 +381,7 @@ const PlaydateConsole = ({
 
       {/* Main Console */}
       <div
-        className="relative z-10 h-[510px] w-[492px] rounded-3xl shadow-2xl select-none before:absolute before:-top-1.5 before:right-16 before:z-[25] before:h-1.5 before:w-14 before:rounded-t-[6px] before:shadow-[inset_5px_1px_2px_1px_rgba(255,255,255,0.7),inset_-5px_1px_2px_1px_rgba(255,255,255,0.7)] max-md:w-[442px] max-sm:w-[350px]"
+        className="relative z-10 h-[510px] w-[492px] rounded-3xl shadow-2xl select-none before:absolute before:-top-1.5 before:right-16 before:z-[25] before:h-1.5 before:w-14 before:rounded-t-[6px] before:shadow-[inset_5px_1px_2px_1px_rgba(255,255,255,0.7),inset_-5px_1px_2px_1px_rgba(255,255,255,0.7)] max-md:w-[442px] max-sm:w-[350px] max-[359px]:scale-[0.9]"
         style={
           {
             ...theme,
@@ -428,6 +428,10 @@ const PlaydateConsole = ({
             label="A"
             onClick={() => onActionButtionClick?.("A")}
           />
+          {/* Hint: A confirms the selection */}
+          <span className="font-pixelify pointer-events-none absolute bottom-[96px] left-[367px] w-[56px] text-center text-base font-semibold text-zinc-600 max-sm:bottom-[136px] max-sm:left-[270px] max-sm:w-12 max-sm:text-sm">
+            OK
+          </span>
           <ActionButton
             className="bottom-[124px] left-[267px] max-sm:bottom-40 max-sm:left-[200px] max-sm:size-12"
             label="B"

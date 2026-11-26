@@ -4,6 +4,7 @@ import Profile from "@/components/profile";
 import { Button } from "@/components/ui/button";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Typewriter } from "@/components/ui/typewriter";
+import { clients, projects } from "@/data/work";
 import { clientApi } from "@/lib/client-api";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
@@ -59,7 +60,7 @@ const Hero = () => {
               </div>
               <div className="h-px w-12 bg-[#e1e1e1]" />
               <span className="text-foreground/50 font-mono text-xs md:text-sm">
-                Software Engineer
+                Senior Software Engineer
               </span>
             </motion.div>
 
@@ -89,17 +90,17 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-foreground/60 max-w-2xl text-sm font-light md:text-base"
             >
-              Software Engineer with 3 years of experience owning end-to-end
-              delivery of responsive web apps in React, Next.js, and Angular,
-              integrating AI/LLM services and RAG pipelines into production
-              interfaces for clients like NPCI, Bosch, SEBI, and Tata.
+              Full-Stack AI Engineer with 3 years of experience shipping
+              production LLM and RAG products across web, Android and iOS. I
+              also go on-site to gather client requirements and help write
+              proposals.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-5 flex  items-center gap-4 max-md:justify-center max-md:mx-auto"
+              className="mt-5 flex flex-wrap items-center gap-4 max-md:justify-center max-md:mx-auto"
             >
               <Button
                 asChild
@@ -122,6 +123,14 @@ const Hero = () => {
                   Download resume
                 </Link>
               </Button>
+              <Button
+                asChild
+                variant="ghost"
+                size="lg"
+                className="font-medium"
+              >
+                <Link href="/work">View all work</Link>
+              </Button>
             </motion.div>
           </div>
         </motion.div>
@@ -136,8 +145,8 @@ const Hero = () => {
               value: umamiStats?.data?.pageviews ?? 0,
             },
             { label: "Years of Experience", value: 3 },
-            { label: "Projects Shipped", value: 6 },
-            { label: "Enterprise Clients", value: 4 },
+            { label: "Projects", value: projects.length },
+            { label: "Clients", value: clients.length },
           ].map((stat, i) => (
             <div
               key={i}

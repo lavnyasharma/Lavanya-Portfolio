@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ThemeToggleButton2 } from "../../theme-toggle";
 import { Logo } from "../../ui/logo";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/site";
 import { useIsSoundEnabled } from "@/store/use-sound-enabled";
@@ -13,7 +14,7 @@ import { useIsSoundEnabled } from "@/store/use-sound-enabled";
 const NAV_LINKS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
+  { id: "work", label: "Work", href: "/work" },
   { id: "stats", label: "Stats" },
   { id: "contact", label: "Contact" },
 ] as const;
@@ -77,13 +78,29 @@ const Navbar = () => {
     };
   }, [active]);
 
-  const handleNavClick = (id: NavId) => {
-    setActive(id);
+  const router = useRouter();
+
+  const getHref = (link: (typeof NAV_LINKS)[number]) =>
+    "href" in link ? link.href : `#${link.id}`;
+
+  const handleNavClick = (id: NavId, e?: React.MouseEvent) => {
     setOpen(false);
+    // "Work" is its own page; keep modified clicks (new tab) native.
+    if (id === "work") {
+      if (e && !e.metaKey && !e.ctrlKey && !e.shiftKey) {
+        e.preventDefault();
+        router.push("/work");
+      }
+      return;
+    }
+    setActive(id);
   };
 
   return (
-    <nav className="w-full border-b px-4 py-2.5 md:px-8" id="home">
+    <>
+      {/* Scroll target for "Home": a sticky element cannot be one */}
+      <div id="home" aria-hidden="true" />
+      <nav className="bg-background/90 sticky top-0 z-40 w-full border-b px-4 py-2.5 backdrop-blur-md md:px-8">
       <div className="flex items-center justify-between gap-4">
         {/* Logo */}
         <a
@@ -123,8 +140,8 @@ const Navbar = () => {
                 <a
                   key={x.id}
                   ref={isActive ? activeTabRef : null}
-                  href={`#${x.id}`}
-                  onClick={() => handleNavClick(x.id)}
+                  href={getHref(x)}
+                  onClick={(e) => handleNavClick(x.id, e)}
                   className={cn(
                     "relative rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
                     isActive ? "" : "opacity-70 hover:opacity-100",
@@ -237,8 +254,8 @@ const Navbar = () => {
               {NAV_LINKS.map((x, index) => (
                 <motion.a
                   key={x.id}
-                  href={`#${x.id}`}
-                  onClick={() => handleNavClick(x.id)}
+                  href={getHref(x)}
+                  onClick={(e) => handleNavClick(x.id, e)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
@@ -283,7 +300,7 @@ const Navbar = () => {
 
               <div className="grid grid-cols-3 gap-2 px-2 py-1">
                 <a
-                  href="https://github.com/"
+                  href={siteConfig.github}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="hover:bg-foreground/5 group flex flex-col items-center gap-1.5 rounded-lg py-2 transition-colors"
@@ -336,6 +353,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 };
 

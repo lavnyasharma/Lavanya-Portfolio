@@ -29,7 +29,7 @@ const FloatingAvatar = () => {
       const scrolled = el?.scrollTop ?? 0;
 
       if (!isVisible) {
-        setIsVisible(scrolled > window.innerHeight * 2 && !isDismissed);
+        setIsVisible(scrolled > window.innerHeight &&!isDismissed);
       }
     };
 

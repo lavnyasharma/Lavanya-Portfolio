@@ -68,12 +68,12 @@ export default function Contact() {
 
       <div className="mb-8 text-center max-w-2xl mx-auto px-4">
           <p className="text-foreground/70 mb-4">
-            I’m always open to discussing collaborative startup opportunities, frontend roles, and AI-driven product challenges.
+            I’m always open to discussing collaborative startup opportunities, full-stack AI roles, and AI-driven product challenges.
             If you’re looking for someone who cares deeply about user experience and modern web technologies, I’d love to chat.
           </p>
-          <div className="flex gap-4 justify-center text-sm font-mono text-foreground/50">
-             <span>email: {siteConfig.email}</span>
-             <span>•</span>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-sm font-mono text-foreground/50 max-sm:text-xs">
+             <span className="min-w-0 break-all max-sm:w-full">email: {siteConfig.email}</span>
+             <span className="max-sm:hidden">•</span>
              <a href={siteConfig.linkedin} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">linkedin</a>
              <span>•</span>
              <a href={siteConfig.github} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">github</a>

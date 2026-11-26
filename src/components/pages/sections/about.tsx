@@ -31,11 +31,11 @@ const About = () => {
           <div className="text-foreground/70 bg-muted/20 relative z-10 mx-auto mt-6 max-w-3xl rounded-lg border-2 border-dotted text-sm leading-relaxed backdrop-blur-3xl md:text-base">
             <div className="p-6">
               <p className="mb-6">
-                I am a Software Engineer with 3 years of experience owning end-to-end delivery of responsive web applications, currently building AI-powered interfaces at CoRover, Bengaluru. My expertise lies in architecting enterprise-grade frontend systems, conversational AI platforms, and real-time analytics dashboards using React, Next.js, Angular (v8–19), and TypeScript.
+                I am a Full-Stack AI Engineer with 3 years of experience, currently a Senior Software Engineer at CoRover, Bengaluru, and Lead Engineer on PortGPT. I build LLM and RAG products, real-time voice and streaming interfaces, and cross-platform apps with React, Next.js, Angular, TypeScript and Python (FastAPI).
               </p>
 
               <p className="">
-                I&apos;ve independently driven design, development, and delivery of enterprise-grade UI and RFPs for clients including NPCI, Bosch, SEBI, and Tata—integrating LLM APIs, RAG pipelines, and SSE streaming into production products. I&apos;m an AWS Certified Cloud Practitioner and National Winner at Smart India Hackathon 2022.
+                My work goes beyond code: I go on-site for client requirement gathering, run client calls, write proposals, RFP responses and pitch decks, contribute solution design, and mentor junior engineers. I&apos;m an AWS Certified Cloud Practitioner and National Winner at Smart India Hackathon 2022.
               </p>
             </div>
 
@@ -77,9 +77,9 @@ const About = () => {
                 <div className="text-center">
                   <div className="border-foreground/20 bg-muted/20 mb-4 overflow-hidden rounded-lg border-2 border-dashed p-4">
                     <img
-                      src="/ascii-art-profile.png"
-                      alt="ASCII"
-                      className="-mb-5 h-auto w-full object-cover object-center dark:invert"
+                      src="/profile-photo.jpg"
+                      alt="Lavanya Sharma"
+                      className="h-auto w-full rounded-md object-cover object-center"
                     />
                   </div>
                   <h3 className="font-incognito text-2xl font-semibold">

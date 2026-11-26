@@ -557,7 +557,7 @@ const HomePage = () => {
             </span>
           </div>
           <div className="bg-foreground/20 h-4 w-px" />
-          <span className="text-xs">Software Engineer</span>
+          <span className="text-xs">Full-Stack AI Engineer</span>
         </div>
       </motion.div>
 
